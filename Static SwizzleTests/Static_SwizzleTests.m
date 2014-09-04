@@ -8,27 +8,28 @@
 
 #import <XCTest/XCTest.h>
 
+#import "GADInterstitial+Swizzle.h"
+
 @interface Static_SwizzleTests : XCTestCase
+
+@property (nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
 @implementation Static_SwizzleTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown {
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testSwizzeling {
+    self.interstitial = [[GADInterstitial alloc] init];
+    NSLog(@"%s Interstitial Class : %@", __PRETTY_FUNCTION__, self.interstitial.class);
+    XCTAssert([self.interstitial isMemberOfClass:NSObject.class], @"Should be an instance of NSObject instead of GADInterstitial");
 }
 
 @end
