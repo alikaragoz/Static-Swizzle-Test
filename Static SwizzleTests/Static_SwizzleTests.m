@@ -9,10 +9,11 @@
 #import <XCTest/XCTest.h>
 
 #import "GADInterstitial+Swizzle.h"
+#import "AIInterstitialTest.h"
 
 @interface Static_SwizzleTests : XCTestCase
 
-@property (nonatomic, strong) GADInterstitial *interstitial;
+@property (nonatomic, strong) AIInterstitialTest *tester;
 
 @end
 
@@ -27,9 +28,13 @@
 }
 
 - (void)testSwizzeling {
-    self.interstitial = [[GADInterstitial alloc] init];
-    NSLog(@"%s Interstitial Class : %@", __PRETTY_FUNCTION__, self.interstitial.class);
-    XCTAssert([self.interstitial isMemberOfClass:NSObject.class], @"Should be an instance of NSObject instead of GADInterstitial");
+    
+    self.tester = [[AIInterstitialTest alloc] init];
+    [self.tester createInterstitial];
+    
+//    self.interstitial = [[GADInterstitial alloc] init];
+//    NSLog(@"%s Interstitial Class : %@", __PRETTY_FUNCTION__, self.interstitial.class);
+//    XCTAssert([self.interstitial isMemberOfClass:NSObject.class], @"Should be an instance of NSObject instead of GADInterstitial");
 }
 
 @end

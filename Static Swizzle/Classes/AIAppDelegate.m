@@ -9,7 +9,6 @@
 #import "AIAppDelegate.h"
 
 #import "GADInterstitial.h"
-#import "GADInterstitial+Swizzle.h"
 
 @interface AIAppDelegate ()
 
